@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="curriculum_layout">
+        <div class="header">
+            <div class="row" style="report_header_style">
+                <div class="o_background_header d-flex justify-around">
+                    <img t-if="curriculum.company_id.logo" t-att-src="image_data_uri(curriculum.company_id.logo)" style="" alt="Logo"/>
+<!--                    <img t-if="curriculum.company_id.logo" t-att-src="image_data_uri(curriculum.company_id.logo)" style="max-height: 85px;min-height: 80px" alt="Logo"/> -->
+<!--                    <img t-if="curriculum.company_id.logo and curriculum.company_id.name != curriculum.job_id.address_id.name" t-att-src="image_data_uri(curriculum.company_id.logo)" class="mx-auto" style="max-height: 20px;width:20%; " alt="Logo"/> -->
+                    <div class="float-right company_address">
+                    </div>
+                    <div class="clearfix mb8"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="article o_report_layout_standard">
+            <t t-out="0"/>
+        </div>
+
+        <div class="footer o_standart_footer">
+            <hr/>
+            <div class="text-center">
+            </div>
+        </div>       
+    </template>
+
+    <template id="report_altare">
+        <div class="page">
+            <div class="text-right">
+                <strong>CV CANDIDADO</strong>
+            </div>
+            <div class="text-right">
+                <strong>(Documento Confidencial)</strong>
+            </div>
+            <hr/>
+            <!-- <div class="span12 border rounded border-dark border-1" style="padding: 5px;"> -->
+                <h4>
+                    <strong>Candidato: </strong>
+                    <span t-field="curriculum.curriculum_id.nombre"/>
+                    <span t-field="curriculum.curriculum_id.apellidos"/>
+                </h4>
+                <div>
+                    <strong>Perfil: </strong>
+                    <span t-field="curriculum.curriculum_id.cargo"/>
+                </div>
+                <div>
+                    <strong>Descripción: </strong>
+                    <div class="col-md-4">
+                        <span t-field="curriculum.curriculum_id.conocimientos"/>
+                    </div>
+                </div>
+            <!-- </div> -->
+            <p></p>
+            <!-- <div class="span12 border rounded border-dark border-1" style="padding: 5px;"> -->
+                <h4>
+                    <strong>STACK TECNOLÓGICO: </strong>
+                </h4>
+                <hr/>
+                <div class="span12 d-flex">
+                    <t t-foreach="curriculum.curriculum_id.tag_ids" t-as="line">
+                        <div class="span2 border rounded border-dark border-1 mx-1 px-1">
+                            <span t-esc="line.name"/>
+                        </div>
+                    </t>
+                </div>
+            <!-- </div> -->
+            <p></p>
+            <div class="span12">
+                <h4>
+                    <strong>FORMACIÓN ACADÉMICA: </strong>
+                </h4>
+                <hr/>
+                <div>
+                    <span t-field="curriculum.curriculum_id.estudios"/>
+                </div>
+            </div>
+            <p></p>
+            <div class="span12">
+                <h4>
+                    <strong>IDIOMAS: </strong>
+                </h4>
+                <hr/>
+                <div>
+                    <span t-field="curriculum.curriculum_id.idiomas"/>
+                </div>
+            </div>
+            <p/>
+            <div class="span12">
+                <h4>
+                    <strong>EXPERIENCIA PROFESIONAL: </strong>
+                </h4>
+                <hr/>
+                <div>
+                    <span t-field="curriculum.curriculum_id.experiencia"/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="report_softek">
+        <div class="page">
+            <div style="text-align:center">
+            <h3>
+                <strong>
+                    <span t-field="curriculum.curriculum_id.nombre"/>
+                    <span t-field="curriculum.curriculum_id.apellidos"/>
+                </strong>
+            </h3>
+            </div>
+            <br/>
+            <h4><strong>PROFILE:</strong></h4>
+            <hr/>
+            <div>
+                <ul>
+                    <li><span t-field="curriculum.curriculum_id.cargo"/></li>
+                </ul>
+            </div>
+            <br/>
+            <div class="span12">
+                <h4>
+                    <strong>EXPERIENCIA PROFESIONAL: </strong>
+                </h4>
+                <hr/>
+                <div>
+                    <span t-field="curriculum.curriculum_id.experiencia"/>
+                </div>
+            </div>
+            <br/>
+            <div class="span12">
+                <h4>
+                    <strong>FORMACIÓN ACADÉMICA: </strong>
+                </h4>
+                <hr/>
+                <div>
+                    <span t-field="curriculum.curriculum_id.estudios"/>
+                </div>
+            </div>
+            <br/>
+            <div class="span12">
+                <h4>
+                    <strong>IDIOMAS: </strong>
+                </h4>
+                <hr/>
+                <div>
+                    <span t-field="curriculum.curriculum_id.idiomas"/>
+                </div>
+            </div>
+            <br/>
+            <div class="span12">
+                <h4>
+                    <strong>STACK TECNOLÓGICO: </strong>
+                </h4>
+                <hr/>
+                <div class="span12 d-flex">
+                    <t t-foreach="curriculum.curriculum_id.tag_ids" t-as="line">
+                        <div class="span2 border rounded border-dark border-1 mx-1 px-1">
+                            <span t-esc="line.name"/>
+                        </div>
+                    </t>
+                </div>
+            </div>
+            <br/>
+            <div class="span12">
+                <h4>
+                    <strong>Descripción: </strong>
+                </h4>
+                <hr/>
+                <div class="col-md-4">
+                    <span t-field="curriculum.curriculum_id.conocimientos"/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="report_altare2">
+        <div class="page">
+            <div class="text-right" style="font-size:24px">
+                <strong>CV CANDIDADO</strong>
+            </div>
+            <div class="text-right">
+                <strong>(Documento Confidencial)</strong>
+            </div>
+            <hr/>
+            <!-- <div class="span12 border rounded border-dark border-1" style="padding: 5px;"> -->
+                <h4>
+                    <strong>Candidato: </strong>
+                    <span t-field="curriculum.curriculum_id.nombre"/>
+                    <span t-field="curriculum.curriculum_id.apellidos"/>
+                </h4>
+                <div>
+                    <strong>Perfil: </strong>
+                    <span t-field="curriculum.curriculum_id.cargo"/>
+                </div>
+                <div>
+                    <strong>Descripción: </strong>
+                    <div>
+                        <span t-field="curriculum.curriculum_id.conocimientos"/>
+                    </div>
+                </div>
+            <!-- </div> -->
+            <p></p>
+            <div class="span12">
+            <!-- <div class="span12 border rounded border-dark border-1" style="padding: 5px;"> -->
+                <h4>
+                    <strong>STACK TECNOLÓGICOO: </strong>
+                </h4>
+                <hr/>
+                <div>
+                <span>
+                <table class="table table-bordered o_table" style="width: 1119.26 px;">
+                <tbody>
+                <tr style="height: 33.81 px;">
+                  <t t-foreach="curriculum.curriculum_id.tag_ids" t-as="line">
+                     <td style="width: 50 px;"><span class="h3-fs" t-out="line.name"/></td>
+<!--                     [<t t-esc="line_index"/>: <t t-esc="line"/> <t t-esc="line_value"/>]</t> -->
+                     <span t-if="((line_index + 1) % 4 == 0)"> 
+                     <tr style="height: 33.81 px;"></tr></span> 
+                  </t>
+                </tr>
+                </tbody>
+                </table>
+                </span>
+                </div>
+             </div>
+<!--                <div class="container">
+                    <div class="row justify-content-start">
+                    <t t-foreach="curriculum.curriculum_id.tag_ids" t-as="line">
+                        <div class="col-6 col-sm-4">
+                            <div t-out="line.name"/>
+                        </div>
+                    </t>
+                    </div>
+                </div> -->
+            <!-- </div> -->
+            <p></p>
+            <div class="span12">
+                <h4>
+                    <strong>FORMACIÓN ACADÉMICA: </strong>
+                </h4>
+                <hr/>
+                <div>
+                    <span t-field="curriculum.curriculum_id.estudios"/>
+                </div>
+            </div>
+            <p></p>
+            <div class="span12">
+                <span t-if="curriculum.curriculum_id.idiomas">
+                <h4>
+                    <strong>IDIOMAS: </strong>
+                </h4>
+                <hr/>
+                <div>
+                    <span t-field="curriculum.curriculum_id.idiomas"/>
+                </div>
+                </span>
+            </div>
+            <p/>
+            <div class="span12">
+                <h4>
+                    <strong>EXPERIENCIA PROFESIONAL: </strong>
+                </h4>
+                <hr/>
+                <div>
+                    <span t-field="curriculum.curriculum_id.experiencia"/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- Main report templates -->
+    <template id="report_curriculum">
+    	<t t-foreach="docs" t-as="curriculum">
+            <t t-call="web.html_container">
+                <t t-call="cvaltare.curriculum_layout">
+                    <t t-call="{{curriculum.external_id}}">
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

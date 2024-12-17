@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="cvaltare_curriculum_action" model="ir.actions.act_window">
+        <field name="name">Curriculums</field>
+        <field name="res_model">cvaltare.curriculum</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="context">{'mostrar':'curriculum'}</field> -->
+        <!-- <field name="search_view_id" ref="cvaltare_curriculum_search"/> -->
+        <field name="context">{
+            'mostrar':'curriculummmmm',
+            'search_default_disponible': True}
+        </field>
+    </record>
+
+    <record id="cvaltare_curriculum_view_tree" model="ir.ui.view">
+        <field name="name">cvaltare.curriculum.tree</field>
+        <field name="model">cvaltare.curriculum</field>
+        <field name="arch" type="xml">
+            <tree string="Channel">
+                <field name="id" optional="hide"/>
+                <field name="mail"/>
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="cargo"/>
+                <field name="telefono"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="hide"/>
+                <field name="edad" optional="hide"/>
+                <field name="used" optional="hide"/>
+                <field name="company_id" optional="hide"/>
+           </tree>
+        </field>
+    </record>
+
+    <record id="cvaltare_curriculum_view_form" model="ir.ui.view">
+        <field name="name">cvaltare.curriculum.form</field>
+        <field name="model">cvaltare.curriculum</field>
+        <field name="arch" type="xml">
+            <form string="Test">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="toggle_active"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-check"
+                            string="ACTIVA"
+                        >
+                            <field
+                                name="active"
+                                widget="boolean_button"
+                                options='{"terminology": "active"}'
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <label for="nombre" class="oe_edit_only" />
+                            <field name="nombre"/>
+                            <label for="apellidos" class="oe_edit_only" />
+                            <field name="apellidos"/>
+                        </h1>
+                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                   </div>
+                    <group name="main">
+                        <group>
+                            <field name="id" invisible="1"/>
+                            <field name="mail"/>
+                            <field name="telefono"/>
+                            <field name="cargo"/>
+                            <field name="edad"/>
+                            <field name="fchnaci"/>
+                            <field name="codigo"/>
+                            <field name="mostrar" invisible="1"/>
+                            <field name="used" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="calle"/>
+                            <field name="codpos"/>
+                            <field name="poblacion"/>
+                            <field name="provincia"/>
+                            <field name="rango_ini"/>
+                            <field name="rango_fin"/>
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="experiencia" string="Experiencia">
+                            <group name="Experiencia">
+                                <field name="experiencia" type="html" options="{'collaborative': true}"/>
+                            </group>
+                        </page>
+                        <page name="estudios" string="Estudios">
+                            <group name="Estudios">
+                                <field name="estudios"/>
+                            </group>
+                        </page>
+                        <page name="conocimientos" string="Conocimientos">
+                            <group name="Conocimientos">
+                                <field name="conocimientos" type="html" options="{'collaborative': true}"/>
+                            </group>
+                        </page>
+                        <page name="idiomas" string="Idiomas">
+                            <group name="Idiomas">
+                                <field name="idiomas" type="html" options="{'collaborative': true}"/>
+                            </group>
+                        </page>
+                        <!-- <page name="ofertas" string="Ofertas">
+                           <field name="oferta_ids">
+                                <tree limit="15" create="0" delete="0">
+                                    <field name="nombre_oferta"/>
+                                    <field name="status"/>
+                                    <field name="observaciones"/>
+                                    <field name="create_date" readonly="1"/>
+                                </tree>
+                           </field>
+                        </page> -->
+                        <page name="postulaciones" string="Postulaciones">
+                           <field name="applicant_ids">
+                                <tree limit="15" create="0" delete="0">
+                                    <!-- <field name="id"/> -->
+                                    <field name="name"/>
+                                    <field name="job_id"/>
+                                    <field name="partner_name"/>
+                                    <field name="stage_id"/>
+                                    <field name="user_id"/>
+                                </tree>
+                           </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="cvaltare_curriculum_search" model="ir.ui.view">
+        <field name="name">cvaltare.curriculum.search</field>
+        <field name="model">cvaltare.curriculum</field>
+        <field name="arch" type="xml">
+            <search string="Busquedas de curriculums">
+                <field name="mail" string="Correo" />
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                <filter string="Disponibles" name="disponible" domain="[('used', '=', True)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Código Postal" name="codpos" context="{'group_by':'codpos', 'residual_visible':True}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

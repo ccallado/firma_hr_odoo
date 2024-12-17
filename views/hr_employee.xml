@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_layaud_form" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.cvaltare</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="template" string="Firma Mail">
+                    <group name="Firma">
+<!--                        <field name="firma_image" domain="[('type','=', 'qweb'), ('key', 'like', 'cvaltare%')]"/> -->
+<!--                        <field name="firma_image" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true, &quot;preview_image&quot;:&quot;avatar_128&quot;}"/>-->
+<!--                        <field name="firma_image" widget="image" options="{'preventClicks': false, 'preview_image': 'firma_image'}"/>-->
+                        <field name="firma_image" widget="image"/>
+                        <field name="firma_html" widget="html"/>
+                    </group>
+                </page>
+            </notebook> 
+        </field> 
+    </record>
+    
+    <record id="hr_employee_firmas_action" model="ir.actions.server">
+        <field name="name">Firma</field>
+        <!-- <field name="type">ir.actions.act_window</field> -->
+        <!-- <field name="domain">[('employee_id', "=", active_id)]</field> -->
+        <field name="model_id" ref="cvaltare.model_hr_employee"/>
+        <field name="binding_model_id" ref="cvaltare.model_hr_employee"/>
+        <field name="binding_view_types">list</field>
+        <!-- <field name="res_model">hr.employee</field> -->
+        <!-- <field name="view_mode">tree</field>  -->
+        <field name="state">code</field>
+        <field name="code">
+           action = model.action_crear_firma()
+        </field>
+        <!-- <field name="view_id" ref="hr.view_employee_tree"/> -->
+        <!-- <field name="binding_model_id" ref="model_hr_employee"/> -->
+        <field name="help" type="html">
+            <p>Rehace la firma html y jpg de todos los empleados seleccionados.</p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="cvaltare_entrevista_action" model="ir.actions.act_window">
+        <field name="name">Entrevistas</field>
+        <field name="res_model">cvaltare.entrevista</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="context">{'mostrar':''}</field>
+    </record>
+
+    <record id="cvaltare_entrevista_view_tree" model="ir.ui.view">
+        <field name="name">Lineas entrevistas</field>
+        <field name="model">cvaltare.entrevista</field>
+        <field name="arch" type="xml">
+            <tree
+                   string="Channel"
+                   decoration-danger="status=='refused'"
+                   decoration-info="status=='accepted'"
+           >
+                <field name="name"/>
+                <field name="status"/>
+                <field name="observaciones"/>
+                <field name="create_date" readonly="1"/>
+                <field name="linea_id"/>
+                <field name="entrevistador_id"/>
+                <field name="request_date_from"/>
+                <field name="request_hour_from"/>
+                <field name="request_date_to"/>
+                <field name="request_hour_to"/>
+                <field name="duration"/>
+                <field name="color"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cvaltare_entrevista_view_form" model="ir.ui.view">
+        <field name="name">Formulario entrevista</field>
+        <field name="model">cvaltare.entrevista</field>
+        <field name="arch" type="xml">
+            <form string="Test">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="status"/>
+                        <field name="create_date" readonly="1"/>
+                        <field name="linea_id"/>
+                        <field name="entrevistador_id"/>
+                        <field name="request_date_from"/>
+                        <field name="request_hour_from"/>
+                        <field name="request_date_to"/>
+                        <field name="request_hour_to"/>
+                        <field name="duration"/>
+                        <field name="color"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    <record id="cvaltare_entrevista_calendar_view" model="ir.ui.view">
+        <field name="name">Entrevistas Calendario</field>
+        <field name="model">cvaltare.entrevista</field>
+        <field name="priority" eval="2"/>
+        <field name="arch" type="xml">
+            <calendar 
+                string="Entrevista" 
+                mode="month" 
+                date_start="request_date_from" 
+                date_stop="request_date_to" 
+                date_delay="duration" 
+                color="color" 
+                event_open_popup="true" 
+                event_limit="5"
+                quick_add="false">
+                <field name="observaciones"/>
+            </calendar>
+        </field>
+    </record> -->
+</odoo>
+
+<!-- <record id="mobile_service_view_calendar" model="ir.ui.view">   
+    <field name="name">mobile.service.calendar</field>   
+    <field name="model">mobile.service</field>   
+    <field name="arch" type="xml">       
+        <calendar string="Service Request" date_start="date_request" date_stop="return_date" event_open_popup="true" mode="month" color="person_name" quick_add="False">
+            <field name="person_name"/>           
+            <field name="technician_name"/>       
+        </calendar>   
+    </field>
+</record> -->

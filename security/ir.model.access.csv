@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cvaltare_curriculum_user,cvaltare_curriculum_user,model_cvaltare_curriculum,base.group_user,1,1,1,1
+access_cvaltare_curriculumtag_user,cvaltare_curriculumtag_user,model_cvaltare_curriculumtag,base.group_user,1,1,1,1
+access_cvaltare_oferta_user,cvaltare_oferta_user,model_cvaltare_oferta,base.group_user,1,1,1,1
+access_cvaltare_oferta_line_user,cvaltare_oferta_line_user,model_cvaltare_oferta_line,base.group_user,1,1,1,1
+access_cvaltare_res_partner,cvaltare_partner_user,base.model_res_partner,base.group_user,1,1,1,1
+access_cvaltare_entrevista_user,cvaltare_entrevista_user,model_cvaltare_entrevista,base.group_user,1,1,1,1

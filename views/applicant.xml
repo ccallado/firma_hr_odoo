@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="cvaltare_view_form" model="ir.ui.view">
+    <field name="name">view_project_form_specific</field>
+    <field name="model">hr.applicant</field>
+    <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+    <field name="arch" type="xml">
+      <!-- <xpath expr="//field[@name='email_from']" position="before"> -->
+      <xpath expr="//field[@name='email_from']" position="replace">
+        <field name="email_from" widget="email" invisible="1"/>
+        <field name="curriculum_id" string="Correo electrónico"/>
+        <field name="external_id" invisible="1"/>
+      </xpath>
+    </field>
+  </record>
+ 
+  <!-- <record id="cvaltare.action_report_hr_recruitement_cvaltare_curriculum" model="ir.actions.report">
+    <field name="binding_model_id" eval="False"/>
+  </record> -->
+</odoo>

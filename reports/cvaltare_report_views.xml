@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_report_hr_recruitement_cvaltare_curriculum" model="ir.actions.report">
+            <field name="name">Curriculum</field>
+            <field name="model">hr.applicant</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">cvaltare.report_curriculum</field>
+            <field name="report_file">cvaltare.report_curriculum</field>
+            <field name="print_report_name">'Curriculum'</field>
+            <field name="binding_model_id" ref="model_hr_applicant"/>
+        </record>
+    </data>
+</odoo>

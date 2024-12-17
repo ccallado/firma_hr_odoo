@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="res_config_settings_view_form" model="ir.ui.view">
+    <field name="name">cvaltare.settings.form</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="hr.res_config_settings_view_form"/>
+    
+    <field name="arch" type="xml">
+      <xpath expr="//setting[@id='home_working_setting']"
+                   position="after">
+        <h2>Template de firma</h2>
+        <!-- <div class="row mt16 o_settings_container" name="employee_template_setting_firma"> -->
+        <div class="row lg o_settings_container" name="employee_template_setting_firma">
+          <div class="col-12 o_setting_box" title="Template para la firma del correo.">
+            <div class="o_setting_center_pane">
+              <field name="html_template" style="width:100% !important" widget="ace"/>
+            </div>
+          </div>
+        </div>
+      </xpath>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <menuitem id="cvaltare_menu_root" name="Curriculums">
+        <menuitem id="cvaltare_maestros_menu" name="Maestros">
+                <menuitem id="cvaltare_curriculum_menu"     action="cvaltare_curriculum_action" sequence="5"/>
+                <menuitem id="cvaltare_clientes_menu"       action="account.res_partner_action_customer" sequence="35"/>
+                <menuitem id="cvaltare_curriculumtag_menu"  action="cvaltare_curriculumtag_action" sequence="15"/>
+                <menuitem id="cvaltare_oferta_menu"         action="cvaltare_oferta_action" sequence="25"/>
+                <menuitem id="cvaltare_oferta_line_menu"    action="cvaltare_oferta_line_action" sequence="25"/>
+                <menuitem id="cvaltare_entrevista_menu"     action="cvaltare_entrevista_action" sequence="5"/>
+        </menuitem>
+    </menuitem> -->
+    <menuitem id="cvaltare_curriculum_menu" parent="hr_recruitment.menu_crm_case_categ0_act_job" action="cvaltare_curriculum_action" sequence="5"/>
+
+</odoo>
